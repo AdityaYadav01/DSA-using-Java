@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 public class Ques8 {
 
-    public static int ArmstrongNumber(int n){
+    public static boolean ArmstrongNumber(int n){
         int sum = 0;
+        int temp = n;
 
         while(n>0){
             int rem = n%10;
@@ -14,7 +15,7 @@ public class Ques8 {
             n /= 10;
 
         }
-        return sum;
+        return sum == temp;
     }
 
     public static void main(String[] args) {
@@ -23,12 +24,21 @@ public class Ques8 {
         System.out.println("Enter the number: ");
         int num = in.nextInt();
 
-        int res = ArmstrongNumber(num);
 
-        if(res == num){
+        if(ArmstrongNumber(num)){
             System.out.println(num + " is a armstrong number");
         }else{
             System.out.println(num + " isn't a armstrong number");
+        }
+
+        // Printing all 3 digit armstrong numbers
+
+        System.out.print("All three digit armstrong numbers are: ");
+        for (int i = 100; i <= 999 ; i++) {
+            if (ArmstrongNumber(i)){
+                System.out.print(i + " ");
+            }
+
         }
     }
 }
